@@ -1,99 +1,182 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Listar Productos</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <style>
-        .btn-animate {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .btn-animate:hover {
-            transform: scale(1.1);
-            /* Aumenta el tamaño del botón */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            /* Agrega una sombra */
-        }
-    </style>
+  <title>Principal</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <header id="header">
-        <!-- Coloca la barra de navegación aquí -->
-    </header>
-    <main>
-        <div id="app" class="container">
-            <h1>Productos</h1>
-            <br>
-            <!-- <a class="btn btn-primary" href="producto-create.html">Nuevo</a> -->
-            <!-- <a class="btn btn-primary btn-animate" href="producto-create.html">Nuevo</a> -->
-            <a class="btn btn-primary animate__animated animate__heartBeat btn-animate" href="producto_nuevo.html">Nuevo</a>
-            <br><br>
-            <div v-if="error">
-                <p>Lo sentimos, ha ocurrido un error.</p>
-            </div>
-            <div v-else>
-                <section v-if="cargando">
-                    <div class="spinner-border"></div>
-                    <p>Cargando...</p>
-                </section>
-                <section v-else>
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Id</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Precio</th>
-                                    <th scope="col">Stock</th>
-                                    <th scope="col">Imagen</th>
-                                    <th scope="col">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Iterar sobre cada producto -->
-                                <tr class="" v-for="producto in productos">
-                                    <td scope="row">{{producto.id}}</td>
-                                    <td>{{producto.nombre}}</td>
-                                    <td>{{producto.precio}}</td>
-                                    <td>{{producto.stock}}</td>
-                                    <td>
-                                        <img width="150" :src="producto.imagen" :alt="producto.nombre">
-                                    </td>
-                                    <td>
-                                        <!-- Botón para editar el producto -->
-                                        <a class="btn btn-primary"
-                                            :href="'producto_update.html?id='+ producto.id">Editar</a>
-                                        <!-- Botón para eliminar el producto -->
-                                        <button type="button" class="btn btn-danger"
-                                            v-on:click="eliminar(producto.id)">Eliminar</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-            </div>
+  <header id="header">
+    <!-- place navbar here -->
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <div class="container" style="background-color: cadetblue; border-radius: 10px; height: 60px;">
+        <a class="navbar-brand" href="index.html"></a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html" aria-current="page"
+                style="font-size: 30px; font-family: 'Times New Roman', Times, serif; color: white;"><strong>Inicio</strong>
+                <span class="visually-hidden">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <!--<a class="nav-link" href="#">Link</a>-->
+            </li>
+            <li class="nav-item dropdown">
+              <!--<a class="nav-link dropdown-toggle" href="#" id="dropdownId"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">CRUD</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownId">
+                        <a class="dropdown-item" href="productos.html">Productos</a>
+                        <a class="dropdown-item" href="#">Action 2</a>
+                    </div>-->
+            </li>
+          </ul>
+          <form class="d-flex my-2 my-lg-0">
+            <input class="form-control me-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+              style="background-color: white;">Buscar</button>
+          </form>
         </div>
-    </main>
-    <footer>
-        <!-- Coloca aquí el contenido del pie de página -->
-    </footer>
-    <!-- Enlace de Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
-        crossorigin="anonymous"></script>
-    <script src="./js/main.js"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--Enlace de VUE-->
-    <script src="./js/productos.js"></script>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div id="app" class="container"><br>
+      <h1 style="text-align: center;">Listado de Vehículos</h1>
+      <a href="https://www.chevrolet.com.ar/" target="_blank"><img src="imagenes/logo-ch.jpeg" alt="" style="margin-left: 42%;
+       width: 200px; height: 100px;">
+      </a>
+      <br />
+      <a class="btn btn-success" href="producto_nuevo.html"> <i class="fa fa-car" style="margin-right: 10px;"></i>
+        Ingresar Vehículo Nuevo</a>
+      <br /><br />
+      <div v-if="error">
+        <p>Lo sentimos , ........</p>
+      </div>
+      <div v-else>
+        <section v-if="cargando">
+          <div class="spinner-border"></div>
+          <p>Cargando .....</p>
+        </section>
+        <section v-else>
+          <div class="table-responsive">
+            <table class="table table-bordered tabled-striped" style="border: rgb(0, 0, 0);">
+              <thead>
+                <tr style="text-align: center; font-size: 20px; background-color: rgb(129, 228, 223, 0.5);">
+                  <th scope="col">Id</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Precio</th>
+                  <th scope="col">Stock</th>
+                  <th scope="col">Imagen</th>
+                  <th scope="col">Venta</th>
+                  <th scope="col">Editar</th>
+                  <th scope="col">Eliminar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="" v-for="producto in productos"
+                  style="text-align: center; vertical-align: middle; font-size: 20px;">
+                  <td scope="row">{{producto.id}}</td>
+                  <td style="text-align: left;">{{producto.nombre}}</td>
+                  <td>{{producto.precio}}</td>
+                  <td>{{producto.stock}}</td>
+                  <td>
+                    <img class="zoom" width="150" :src="producto.imagen" :alt="producto.nombre">
+                  </td>
+                  <td>
+                    <a class="btn btn-primary" :href="'producto_venta.html?id='+ producto.id" style="background-color: rgb(248, 187, 102);
+                     border: none; display: flex; justify-content: center; font-size: 20px; color: black;"><i
+                        class="fa fa-dollar"
+                        style="margin-right: 5px; margin-top: 5px; color: rgb(7, 7, 7);"></i>Venta</a>
+                  </td>
+                  <td>
+                    <a class="btn btn-primary" :href="'producto_update.html?id='+ producto.id" style="background-color: rgb(55, 126, 213); border: none; 
+                      display: flex; justify-content: center; font-size: 20px;"><i class="fa fa-pencil"
+                        style="margin-right: 10px; margin-top: 5px;"></i>
+                      Editar</a>
+                  </td>
+                  <td>
+                    <a type="button" class="btn btn-danger" v-on:click="eliminar(producto.id)" style="background-color: rgb(208, 60, 60);
+                     border: none; width: 100%; font-size: 20px;"><i class="fas fa-trash"
+                        style="margin-right: 10px;"></i>
+                      Eliminar</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  
+  <script <!--Link de Bootstrap-->
+    src = "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity = "sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin = "anonymous" >
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+    crossorigin="anonymous"></script>
+  <script src="./js/main.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!--Link de VUE-->
+  <script src="./js/productos.js"></script>
 </body>
+
+<footer>
+  <style>
+    footer {
+      padding: 5px;
+      bottom: 0px;
+      left: 0px;
+      width: 100%;
+      animation: moveFooter 5s linear infinite;
+      font-size: 50px;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+
+    @keyframes moveFooter {
+      0% {
+        transform: translateX(30%);
+      }
+
+      50% {
+        transform: translateX(50%);
+      }
+
+      100% {
+        transform: translateX(30%);
+      }
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: baseline;
+      align-items: center;
+    }
+
+    .zoom {
+      transition: transform 0.3s ease;
+    }
+
+    .zoom:hover {
+      transform: scale(3);
+    }
+  </style>
+  <div class="footer-content">
+    <p>C H E V R O L E T</p>
+  </div>
+</footer>
 
 </html>
