@@ -14,35 +14,54 @@
 <body>
     <header id="header">
         <!-- place navbar here -->
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <div class="container" style="background-color: cadetblue; border-radius: 10px; height: 60px;">
+                <a class="navbar-brand" href="index.html"></a>
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html" aria-current="page"
+                                style="font-size: 30px; font-family: 'Times New Roman', Times, serif; color: white;"><strong>Inicio</strong>
+                                <span class="visually-hidden">(current)</span></a>
     </header>
     <main>
-        <div class="container" id="app">
-            <form style="background-color: aliceblue;margin:10px auto ; width: 400px; padding: 20px;">
-                <h1>Alta de Producto</h1>
-                <div class="mb-3">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" v-model="nombre">
-                </div>
-                <div class="mb-3">
-                    <label for="precio">Precio</label>
-                    <input type="number" name="precio" id="precio" v-model="precio">
-                </div>
-                <div class="mb-3">
-                    <label for="stock">Stock</label>
-                    <input type="number" name="stock" id="stock" v-model="stock">
-                </div>
-                <div class="mb-3">
-                    <label for="imagen">Imagen</label>
-                    <input type="text" name="imagen" id="imagen" v-model="imagen">
-                    <img width="100" :src="imagen" alt="">
-
-                </div>
-
-                <button type="button" class="btn btn-success" v-on:click="grabar()">Grabar</button>
-            </form>
-
-        </div>
-
+        <div id="app" class="container"><br>
+            <h1 style="text-align: center;">Ingreso de Vehículos Nuevos</h1><br>
+            <a href="https://www.chevrolet.com.ar/" target="_blank"><img src="imagenes/logo-ch.jpeg" alt="" style="margin-left: 42%;
+             width: 200px; height: 100px;"><br>
+            </a>
+            <br>
+            <div class="container" id="app">
+                <form style="background-color: white; border-style: double; margin: 10px auto; width: 400px; padding: 20px;
+            font-family: 'Times New Roman', Times, serif;">
+                    <h1 style="text-align: center;"></h1><br>
+                    <div class="mb-3">
+                        <label for="nombre"
+                            style="font-size: 20px; margin-right: 15px; text-align: center;"><strong>Nombre</strong></label>
+                        <input type="text" name="nombre" id="nombre" v-model="nombre" style="width: 100%;">
+                    </div>
+                    <div class="mb-3">
+                        <label for="precio" style="font-size: 20px; margin-right: 35px;"><strong>Precio</strong></label>
+                        <input type="number" name="precio" id="precio" v-model="precio" style="width: 100%;">
+                    </div>
+                    <div class="mb-3">
+                        <label for="stock" style="font-size: 20px; margin-right: 40px;"><strong>Stock</strong></label>
+                        <input type="number" name="stock" id="stock" v-model="stock" style="width: 100%;">
+                    </div>
+                    <div class="mb-3">
+                        <label for="imagen" style="font-size: 20px; margin-right: 20px;"><strong>Imagen</strong></label>
+                        <input type="text" name="imagen" id="imagen" v-model="imagen" style="width: 100%;">
+                        <img width="250" :src="imagen" alt="">
+                    </div><br><br>
+                    <button type="button" style="background-color: rgb(77, 75, 75); width: 100%; height: 60px; color: white;
+                font-size: 30px;" v-on:click="grabar()"><strong>Guardar</strong></button>
+                </form>
+            </div>
     </main>
     <footer>
         <!-- place footer here -->
