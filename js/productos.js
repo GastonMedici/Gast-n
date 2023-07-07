@@ -40,6 +40,9 @@ createApp({
        */
       // Construye la URL para eliminar el producto especificado
       const url = this.url + "/" + producto;
+
+      if (confirm('¿Está seguro de que desea eliminar \n' +
+                '      el vehículo con el ID: ' + producto + '?')) {
       var options = {
         method: "DELETE", // Establece el método HTTP como DELETE
       };
