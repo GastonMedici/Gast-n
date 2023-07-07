@@ -59,4 +59,4 @@ createApp({
     created() {
         this.fetchData(this.url)
     },
-}).mount('#app')
+}).mount("#app");
