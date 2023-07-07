@@ -11,7 +11,7 @@ createApp({
             stock: 0,
             precio: 0,
             url: 'http://gasmed.pythonanywhere.com/productos/' + id,
-        }
+        };
     },
     methods: {
         fetchData(url) {
