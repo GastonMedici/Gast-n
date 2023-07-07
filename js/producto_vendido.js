@@ -10,7 +10,7 @@ createApp({
             imagen: "",
             stock: 0,
             precio: 0,
-            url: 'http://GMedici.pythonanywhere.com/productos/' + id,
+            url: 'http://gasmed.pythonanywhere.com/productos/' + id,
         }
     },
     methods: {
